@@ -2,7 +2,15 @@
 <section class="container-fluid bg">
     <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-3">
-            <form class="form-container" method="post">
+            <form id="form" class="form-container" method="post">
+                  <div class="mb-3">
+                    <label for="civilite" class="form-label">Monsieur</label>
+                    <input type="radio" id="civilite" name="genre" class="form-group">
+                  </div>
+                  <div class="mb-3">
+                    <label for="civilite2" class="form-label">Madame</label>
+                    <input type="radio" id="civilite2" name="genre" class="form-group">
+                  </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Nom</label>
                     <input type="text" id="name" name="name" class="form-group" required>
@@ -17,7 +25,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="cp" class="form-label">CP</label>
-                    <input type="number" id="cp" name="cp" class="form-group" required size="5" max="5"> 
+                    <input type="text" id="cp" name="cp" class="form-group" required pattern = '[0-9]{5}' maxlength = '5'> 
                 </div>
                 <div class="mb-3">
                     <label for="ville" class="form-label">Ville</label>
@@ -25,19 +33,19 @@
                 </div>
                 <div class="mb-3">
                     <label for="tel" class="form-label">Téléphone</label>
-                    <input type="tel" id="tel" name="tel" class="form-group" required min="10" max="10">
+                    <input type="tel" id="tel" name="tel" class="form-group" required pattern = '[0-9]{10}' maxlength = '10'>
                 </div>
                 <div class="mb-3">
                     <label for="mail" class="form-label">Email</label>
                     <input type="email" class="form-group" id="mail" name="mail" required placeholder="email@lecnam.net">
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Mot de passe</label>
-                    <input type="password" id="mdp" name="mdp" class="form-group" required pattern="[0-9a-zA-Z-\.]{3,12}">
-                </div>
-                <div class="mb-3">
                     <label for="login" class="form-label">login</label>
                     <input type="text" id="login" name="login" class="form-group" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mdp" class="form-label">Mot de passe</label>
+                    <input type="password" id="mdp" name="mdp" class="form-group" required pattern="(?=^.{8,}$)((?=.*d)|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).* )">
                 </div>
                 <button type="submit" class="btn btn-primary">Envoyer</button>
             </form>
