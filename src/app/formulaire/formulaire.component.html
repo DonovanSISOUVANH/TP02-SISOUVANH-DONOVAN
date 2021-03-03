@@ -2,53 +2,54 @@
 <section class="container-fluid bg">
     <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-3">
-            <form id="form" class="form-container" method="post">
-                  <div class="mb-3">
-                    <label for="civilite" class="form-label">Monsieur</label>
-                    <input type="radio" id="civilite" name="genre" class="form-group">
-                  </div>
-                  <div class="mb-3">
-                    <label for="civilite2" class="form-label">Madame</label>
-                    <input type="radio" id="civilite2" name="genre" class="form-group">
-                  </div>
-                <div class="mb-3">
+            <form #formulaire="ngForm" (ngSubmit)="onSubmit(formulaire.value)">
+                <div>
                     <label for="name" class="form-label">Nom</label>
-                    <input type="text" id="name" name="name" class="form-group" required>
+                    <input type="text" id="name" ngModel name="name" required>
                 </div>
-                <div class="mb-3">
+                <div>
                     <label for="prenom" class="form-label">Prenom</label>
-                    <input type="text" id="prenom" name="firstname" class="form-group" required>
+                    <input type="text" id="prenom" ngModel name="firstname" required>
                 </div>
-                <div class="mb-3">
+                <div>
                     <label for="adresse" class="form-label">Adresse</label>
-                    <input type="text" id="adresse" name="adress" class="form-group" required>
+                    <input type="text" id="adresse" ngModel name="adress" required>
                 </div>
-                <div class="mb-3">
+                <div>
                     <label for="cp" class="form-label">CP</label>
-                    <input type="text" id="cp" name="cp" class="form-group" required pattern = '[0-9]{5}' maxlength = '5'> 
+                    <input type="text" id="cp" ngModel name="cp" required pattern = '[0-9]{5}' maxlength = '5'> 
                 </div>
-                <div class="mb-3">
+                <div>
                     <label for="ville" class="form-label">Ville</label>
-                    <input type="text" id="ville" name="ville" class="form-group" required>
+                    <input type="text" id="ville" ngModel name="ville" required>
                 </div>
-                <div class="mb-3">
+                <div>
                     <label for="tel" class="form-label">Téléphone</label>
-                    <input type="tel" id="tel" name="tel" class="form-group" required pattern = '[0-9]{10}' maxlength = '10'>
+                    <input type="tel" id="tel" ngModel name="tel" required pattern = '[0-9]{10}' maxlength = '10'>
                 </div>
-                <div class="mb-3">
+                <div>
                     <label for="mail" class="form-label">Email</label>
-                    <input type="email" class="form-group" id="mail" name="mail" required placeholder="email@lecnam.net">
+                    <input type="email" id="mail" ngModel name="mail" required placeholder="email@lecnam.net">
                 </div>
-                <div class="mb-3">
+                <div>
                     <label for="login" class="form-label">login</label>
-                    <input type="text" id="login" name="login" class="form-group" required>
+                    <input type="text" id="login" ngModel name="login" required>
                 </div>
-                <div class="mb-3">
+                <div>
                     <label for="mdp" class="form-label">Mot de passe</label>
-                    <input type="password" id="mdp" name="mdp" class="form-group" required pattern="(?=^.{8,}$)((?=.*d)|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).* )">
+                    <input type="password" id="mdp" name="mdp" required pattern="(?=^.{8,}$)((?=.*d)|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).* )">
                 </div>
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <div>
+                    <label for="pays" class="form-label">Pays</label>
+                    <input type="text" id="pays" ngModel name="pays" required>
+                </div>
+                <button>Envoyer</button>
             </form>
         </section>
     </section>
 </section>
+<br/>
+
+<div *ngIf="valid==true">
+    Nom : {{name}}
+</div>
